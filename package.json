@@ -1,0 +1,61 @@
+{
+  "name": "with-storybook",
+  "version": "0.0.0",
+  "scripts": {
+    "storybook": "start-storybook -h localhost -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "update": "npx msw init public --no-save",
+    "test:storybook": "jest",
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:unit": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "test:e2e": "start-server-and-test start http://localhost:3001 cy:run",
+    "eject": "react-scripts eject",
+    "start": "cross-env PORT=3001 react-scripts start",
+    "build": "react-scripts build",
+    "cy:run": "cypress run"
+  },
+  "dependencies": {
+    "msw": "latest",
+    "storybook": "^6.1.16",
+    "@apollo/client": "^3.2.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "cross-env": "^7.0.2",
+    "cypress": "^4.12.0",
+    "graphql": "^15.0.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "4.0.3",
+    "start-server-and-test": "^1.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.16",
+    "@storybook/addon-links": "^6.1.16",
+    "@storybook/addon-storyshots": "^6.1.16",
+    "@storybook/addon-storyshots-puppeteer": "^6.1.16",
+    "@storybook/addons": "^6.1.16",
+    "@storybook/react": "^6.1.16",
+    "puppeteer": "^3.2.0",
+    "react-test-renderer": "^16.13.1"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
